@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} Page Blank {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+    <h5 class="mb-5">Product Detail View</h5>
+       <!-- [ Hover-table ] start -->
+       <!-- ...............On hand..................... -->
+        <div class="col-md-12">
+            <div class="col-md-2"></div>
+            <div class="col-md-2 float-right">
+                <div class="card">
+                    <div class="card-header">
+                       
+                        
+                        <a href="{% url 'product:stock-detail' product.id %}">On Hand {{product.get_total_stock_quantity}} </a>
+                        
+                    </div>
+                </div>
+            </div>
+    <!-- ...............On hand..................... -->
+
+        </div>
+       <p> {{product.name}} </p>
+       <p> {{product.get_type_display}} </p>
+       <p> {{product.category.name}} </p>
+       <p> {{product.uom.name}} </p>
+       <p> {{product.slug}} </p>
+
+
+       <p> {{product.sale_price}} </p>
+       <p> {{product.purchase_price}} </p>
+       <img src="{{product.barcode.url}}">
+
+       <img src="{{product.image.url}}">
+       
+
+       
+    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+        class="nav-item active">
+        <a href="{% url 'product:product-update' product.id %}" class="nav-link "><span class="pcoded-micon">
+            <i class="feather icon-edit">
+
+            </i></span><span class="pcoded-mtext">Edit</span></a>
+    </li>
+
+    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+        class="nav-item active">
+        <a href="{% url 'product:product-delete' product.id %}" class="nav-link "><span class="pcoded-micon">
+            <i class="feather icon-delete">
+
+            </i></span><span class="pcoded-mtext">Delete</span></a>
+    </li>
+
+        
+
+
+
+
+
+
+{% endblock content %}
+
+    <!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
