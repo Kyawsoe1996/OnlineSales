@@ -15,3 +15,6 @@ class Customer(models.Model):
     is_seller =models.BooleanField(default=False)
     country = CountryField(multiple=False)
     image = models.ImageField()
+
+    def __str__(self):
+        return self.username
