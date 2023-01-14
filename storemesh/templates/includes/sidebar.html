@@ -1,0 +1,80 @@
+<nav class="pcoded-navbar">
+    <div class="navbar-wrapper">
+        <div class="navbar-brand header-logo">
+            <a target="_blank" 
+               href="#" class="b-brand">
+                <div class="b-bg">
+                    <i class="feather icon-trending-up"></i>
+                </div>
+                <span class="b-title">Dashboard</span>
+            </a>
+            <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
+        </div>
+        <div class="navbar-content scroll-div">
+            <ul class="nav pcoded-inner-navbar">
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Navigation</label>
+                </li>
+                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                    class="nav-item {% if 'index' in segment %} active {% endif %}">
+                    <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                </li>
+
+                <!-- CUSTOMER ADDING -->
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Customer</label>
+                </li>
+                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
+                    class="nav-item active">
+                    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-check"></i></span><span class="pcoded-mtext">Customer</span></a>
+                </li>
+
+
+                <!-- ............................ -->
+
+
+                <!-- PRODUCT ADDING -->
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Product</label>
+                </li>
+                <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Product</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class=""><a href="#" class="">Product</a></li>
+                        <li class=""><a href="{% url 'product:product-category-list' %}" class="">Product Category</a></li>
+                        <li class=""><a href="#" class="">Product UOM</a></li>
+                    </ul>
+                </li>
+
+                <!-- .......................................... -->
+
+
+                <!-- Sale Order ADDING -->
+                <li class="nav-item pcoded-menu-caption">
+                    <label>Sale</label>
+                </li>
+                <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Sale Order</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class=""><a href="#" class="">Sale Order</a></li>
+                        
+                    </ul>
+                </li>
+                
+                <!-- .......................................... -->
+                 <!-- Inventory ADDING -->
+                 <li class="nav-item pcoded-menu-caption">
+                    <label>Inventory/Stock</label>
+                </li>
+                 <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
+                    <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Inventory</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class=""><a href="#" class="">Warehouse</a></li>
+                        <li class=""><a href="#" class="">Stock</a></li>
+                        
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
