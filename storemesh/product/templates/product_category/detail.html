@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 {% load crispy_forms_tags %}
 {% block title %} Page Blank {% endblock %} 
 
@@ -8,7 +8,7 @@
 {% endblock stylesheets %}
 
 {% block content %}
-    {{category.name}}
+    <h2 class="text text-center">{{category.name}}</h2>
 
 {% endblock content %}
 

@@ -30,7 +30,7 @@ class ProductCategroyForm(forms.ModelForm,BaseFormInherit):
         self.fields['name'].widget.attrs['placeholder'] = "Enter Category Name"
         
 
-class ProductForm(forms.ModelForm):
+class ProductForm(forms.ModelForm,BaseFormInherit):
   
     class Meta:
         
@@ -41,12 +41,16 @@ class ProductForm(forms.ModelForm):
     def __init__(self,*args, **kwargs):
         super(ProductForm,self).__init__(*args, **kwargs)
 
-        for i in self.fields:
-            self.fields[i].widget.attrs.update({'class':'form-control'})
+        
         self.fields['name'].widget.attrs['placeholder'] = "Enter Name"
         self.fields['slug'].widget.attrs['placeholder'] = "Fill Slugname"
 
         self.fields['category'].empty_label = "Select Category"
+        self.fields['description'].widget.attrs['placeholder'] = "Please Enter Product Description"
+        self.fields['unit_price'].widget.attrs['placeholder'] = "Unit Price"
+
+
+
        
 
 

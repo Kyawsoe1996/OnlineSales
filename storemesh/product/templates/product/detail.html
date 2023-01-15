@@ -20,7 +20,7 @@
                     <div class="card-header">
                        
                         
-                        <a href="{% url 'product:stock-detail' product.id %}">On Hand {{product.get_total_stock_quantity}} </a>
+                        <a href="#">On Hand Product Quantity </a>
                         
                     </div>
                 </div>
@@ -28,16 +28,12 @@
     <!-- ...............On hand..................... -->
 
         </div>
-       <p> {{product.name}} </p>
-       <p> {{product.get_type_display}} </p>
-       <p> {{product.category.name}} </p>
-       <p> {{product.uom.name}} </p>
-       <p> {{product.slug}} </p>
-
-
-       <p> {{product.sale_price}} </p>
-       <p> {{product.purchase_price}} </p>
-       <img src="{{product.barcode.url}}">
+       <p> Product Name  -{{product.name}} </p>
+       <p> Type - {{product.get_type_display}} </p>
+       <p> Category -{{product.category.name}} </p>
+       <p> Slug - {{product.slug}} </p>
+       <p> Unit_Price -{{product.unit_price}} </p>
+       <p> Product Description -{{product.description}} </p>
 
        <img src="{{product.image.url}}">
        
@@ -48,7 +44,7 @@
         <a href="{% url 'product:product-update' product.id %}" class="nav-link "><span class="pcoded-micon">
             <i class="feather icon-edit">
 
-            </i></span><span class="pcoded-mtext">Edit</span></a>
+            </i></span><span class="btn btn-success">Edit</span></a>
     </li>
 
     <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
@@ -56,7 +52,7 @@
         <a href="{% url 'product:product-delete' product.id %}" class="nav-link "><span class="pcoded-micon">
             <i class="feather icon-delete">
 
-            </i></span><span class="pcoded-mtext">Delete</span></a>
+            </i></span><span class="btn btn-danger">Delete</span></a>
     </li>
 
         

@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 {% load crispy_forms_tags %}
-{% block title %} Page Blank {% endblock %} 
+{% block title %} Page Blank {% endblock %}
 
 <!-- Specific CSS goes HERE -->
 {% block stylesheets %}
@@ -25,28 +25,26 @@
                             <th>Name</th>
                             <th>Type</th>
                             <th>Category</th>
-                            <th>Uom</th>
-                            <th>Barcode</th>
-                            <th>Sale P</th>
-                            <th>Purchase P</th>
+                            <th>Description</th>
+                            <th>Unit Price</th>
                             <th>Slug</th>
                             <th>Operations</th>
-                           
-                            
+
+
                         </tr>
                     </thead>
                     <tbody>
 
-                        
-                        {% for p  in product_lists  %}
-                            
-                       
-                            
+
+                        {% for p in product_lists %}
+
+
+
                         <tr class="unread">
                             <td>{{forloop.counter}}</td>
                             <td><a href="{{p.get_absolute_url}}">
-                                <img class="rounded-circle" style="width:40px;" 
-                                src="{{p.image.url}}" alt="activity-user">
+                                    <img class="rounded-circle" style="width:40px;" src="{{p.image.url}}"
+                                        alt="activity-user">
                                 </a>
                             </td>
                             <td>
@@ -54,20 +52,21 @@
                             </td>
                             <td>{{p.get_type_display}}</td>
                             <td>{{p.category.name}}</td>
-                            <td>{{p.uom.name}}</td>
-                            <td><img class="rounded-circle" style="width:60px;" src="{{p.barcode.url}}" alt="activity-user"></td>
-                            <td>{{p.sale_price}}</td>
-                            <td>{{p.purchase_price}} </td>
-                           <td> {{p.slug}} </td>
-                              
-                            <td><a href="{% url 'product:product-update' p.id %}" 
-                                class="label theme-bg2 text-white f-12">Edit</a>
-                                <a href="{% url 'product:product-delete' p.id %}" 
-                                class="label theme-bg text-white f-12">Delete</a>
+                            <td>{{p.description}}</td>
+                            <td>{{p.unit_price}}</td>
+                            <td> {{p.slug}} </td>
+
+                            <td>
+                                <a class="label theme-bg2 text-white f-12"
+                                    href="{% url 'product:product-detail' p.id %}">View</a>
+                                <a href="{% url 'product:product-update' p.id %}"
+                                    class="label theme-bg2 text-white f-12">Edit</a>
+                                <a href="{% url 'product:product-delete' p.id %}"
+                                    class="label theme-bg text-white f-12">Delete</a>
                             </td>
                         </tr>
                         {% endfor %}
-                       
+
                     </tbody>
                 </table>
             </div>
