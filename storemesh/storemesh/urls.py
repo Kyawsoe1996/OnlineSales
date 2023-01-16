@@ -25,6 +25,8 @@ urlpatterns = [
     path('product/',include('product.urls',namespace="product")),
     path('sale/',include('sale.urls',namespace="sale")),
     path('inventory/',include('inventory.urls',namespace="inventory")),
+    #all_auth
+    path('accounts/', include('allauth.urls')),
 
 
     

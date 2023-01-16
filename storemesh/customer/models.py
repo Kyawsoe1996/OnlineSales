@@ -10,11 +10,11 @@ class Customer(models.Model):
     user = models.OneToOneField(User,related_name="customer", on_delete=models.CASCADE)
     username = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
-    address = models.TextField()
-    is_buyer = models.BooleanField(default=True)
+    address = models.TextField(blank=True,null=True)
+    is_buyer = models.BooleanField(default=False)
     is_seller =models.BooleanField(default=False)
     country = CountryField(multiple=False)
-    image = models.ImageField()
+    image = models.ImageField(blank=True,null=True)
 
     def __str__(self):
         return self.username
