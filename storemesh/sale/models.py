@@ -48,6 +48,9 @@ class SaleOrderLine(models.Model):
         verbose_name = 'SaleOrderLine'
         verbose_name_plural = 'SaleOrderLines'
         unique_together = ('sale_order', 'product')
+    
+    def get_subtotal(self):
+        return self.quantity * self.product.unit_price
 
     def __str__(self):
         return self.sale_order.ref
