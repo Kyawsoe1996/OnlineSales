@@ -167,3 +167,10 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 LOGIN_REDIRECT_URL = '/'
+# custom signup making from google oauth,otherwise it show error
+ACCOUNT_FORMS = {
+    'signup': 'customer.forms.CustomSignupForm',
+}
+#when signup it show error like connection refused
+ACCOUNT_EMAIL_VERIFICATION = "none"
+
