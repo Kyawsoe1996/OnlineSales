@@ -1,0 +1,52 @@
+
+{% extends "layouts/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Page Blank {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+<form method="post">
+    {% csrf_token %}
+    <table class="col-md-9" style="margin-left: 10px;">
+        {{ formset.management_form|crispy }}
+        {% for form in formset.forms %}
+        <tr class="{% cycle 'row1' 'row2' %} formset_row-{{ formset.prefix }}">
+        {% for field in form.visible_fields %}
+        <td>
+        {# Include the hidden fields in the form #}
+        {% if forloop.first %}
+        {% for hidden in form.hidden_fields %}
+        {{ hidden }}
+        {% endfor %}
+        {% endif %}
+        {{ field.errors.as_ul }}
+        {{ field|as_crispy_field }}
+        </td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+        </table>
+        <input type="submit" value="Add Stock"/>
+</form>
+
+{% endblock content %}
+
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script type="text/javascript">
+    $('.formset_row-{{ formset.prefix }}').formset({
+        
+        addText: 'add',
+        deleteText: 'Remove',
+        prefix: '{{ formset.prefix }}',
+    });
+</script>
+{% endblock javascripts %}
+

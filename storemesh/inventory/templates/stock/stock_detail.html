@@ -1,0 +1,26 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %} Stock Detail {% endblock %}
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+
+{% endblock stylesheets %}
+
+{% block content %}
+<h1>Stock detail</h1>
+<div class="text text-center">
+    <p>Warehouse -{{object.warehouse.name}}</p>
+    <p>Product -{{object.product_id.name}}</p>
+    <p>Quantity -{{object.quantity}}</p>
+</div>
+
+
+
+
+<a href="{% url 'inventory:stock-update' object.id %}">Edit</a>
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
