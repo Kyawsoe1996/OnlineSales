@@ -7,6 +7,8 @@ from django.shortcuts import reverse
 from io import BytesIO
 from django.core.files import File
 from customer.models import Customer
+from urllib.parse import urljoin
+from django.conf import settings
 
 # Create your models here.
 
@@ -51,6 +53,11 @@ class Product(models.Model):
 
     def __str__(self):
        return self.name
+    #in API, showing url full backend
+    @property
+    def get_file_url(self):
+        
+        return urljoin(settings.BACKEND_URL, self.image.url)
     
     # def get_absolute_url(self):
         

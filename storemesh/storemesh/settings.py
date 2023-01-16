@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'customer',
     'sale',
     'product',
-    'inventory'
+    'inventory',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -174,3 +175,4 @@ ACCOUNT_FORMS = {
 #when signup it show error like connection refused
 ACCOUNT_EMAIL_VERIFICATION = "none"
 
+BACKEND_URL = 'http://localhost:8000'

@@ -18,6 +18,8 @@ from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
 from .views import index
+#api
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
@@ -27,6 +29,9 @@ urlpatterns = [
     path('inventory/',include('inventory.urls',namespace="inventory")),
     #all_auth
     path('accounts/', include('allauth.urls')),
+    #api
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/',include('product.api.urls',namespace='api'))
 
 
     
