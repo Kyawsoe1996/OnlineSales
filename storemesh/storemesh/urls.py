@@ -22,8 +22,9 @@ from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    # path('customer/',include('customer.urls',namespace="customer")),
+    path('test', index),
+    #to add default link
+    path('',include('customer.urls',namespace="customer")),
     path('product/',include('product.urls',namespace="product")),
     path('sale/',include('sale.urls',namespace="sale")),
     path('inventory/',include('inventory.urls',namespace="inventory")),

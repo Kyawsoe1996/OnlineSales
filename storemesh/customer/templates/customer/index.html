@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="create-sale-order">
+        <a href="{% url 'sale:sale-order' %}" >Create Sale Order</a>
+    </div>
+    <div class="card1" style="margin-top: 50px;">
+
+        {% for product in products %}
+        <div class="card-item">
+            <p class="text-center"><span class="badge badge-success">{{product.category.name}}</span></p>
+        <a href="#"><img src="{{product.image.url}}" width="200px" height="100px"></a>
+        <p>{{product.name}}</p>
+        
+        <p>Price: {{product.unit_price}}</p>
+        <p class="card-text">{{product.description}}</p>
+        <a href="#" class="view-btn" style="display: block;">View</a>
+        </div>
+       
+      
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
+
+
+{% block javascripts %}
+<script>
+        console.log("Customer Page")
+    </script>
+  
+{% endblock javascripts %}

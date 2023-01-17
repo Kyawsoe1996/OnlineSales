@@ -14,6 +14,8 @@ from django.forms import widgets
 from .models import STATUS
 from product.models import Product
 from customer.models import Customer
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 
@@ -43,7 +45,8 @@ def SaleListView(request):
 class DateInput(forms.DateInput):
     input_type = 'date'
 
-class SaleOrderCreate(CreateView):
+
+class SaleOrderCreate(LoginRequiredMixin,CreateView):
     model = SaleOrder
     template_name = 'sale/sale_create.html'
     form_class = SalOrderForm
@@ -73,6 +76,11 @@ class SaleOrderCreate(CreateView):
             # form.instance.created_by = self.request.user
             self.object = form.save(commit=False)
             self.object.ref = create_so_num()
+            #when so created after google login customer, saved only with that user
+            # #TODO######
+            # need to show in only that customer in SaleOrder Form
+            #################
+            self.object.buyer= self.request.user.customer 
             self.object.save()
             if titles.is_valid():
                 
@@ -130,7 +138,13 @@ class SaleUpdateView(UpdateView):
         with transaction.atomic():
             # form.instance.created_by = self.request.user
             self.object = form.save(commit=False)
+            #when so created after google login customer, saved only with that user
+            # #TODO######
+            # need to show in only that customer in SaleOrder Form
+            #################
+            self.object.buyer = self.request.user.customer
             self.object.save()
+
             
             titles.save()
             for so_line in self.object.so_lines.all():

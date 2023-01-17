@@ -8,9 +8,12 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+            {% if request.user.customer.is_seller or request.user.is_superuser %}
             <li class="nav-item active">
-                <a href="#" style="text-decoration: none; color:black">Home</a>
+                <a href="{% url 'sale:sale-list' %}" style="text-decoration: none; color:black">Dashboard</a>
             </li>
+            {% endif %}
+            
             <li class="nav-item dropdown">
                 <!-- <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                     aria-expanded="false"><b>Books</b></a> -->

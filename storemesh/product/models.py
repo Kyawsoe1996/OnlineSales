@@ -42,7 +42,7 @@ class Product(models.Model):
     unit_price = models.FloatField(blank=True,null=True)
     description = models.TextField()
     ##TODO###
-    # qty_in_warehouse_stocks
+    qty_in_warehouse_stocks = models.IntegerField(blank=True,null=True)
     #####
 
     class Meta:

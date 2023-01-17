@@ -91,10 +91,14 @@ def add_stock_to_warehouse(request,pk):
     else:
         formset = StockFormSet(request.POST)
         if formset.is_valid():
-            chapters = formset.save(commit=False)
-            for chapter in chapters:
-                chapter.warehouse = warehouse
-                chapter.save()
+            stocks = formset.save(commit=False)
+            for stock in stocks:
+                stock.warehouse = warehouse
+                #update product quantity after adding stocks
+                product_obj = stock.product_id
+                product_obj.qty_in_warehouse_stocks = stock.quantity
+                product_obj.save()
+                stock.save()
             
         return redirect("inventory:stock-list")
 

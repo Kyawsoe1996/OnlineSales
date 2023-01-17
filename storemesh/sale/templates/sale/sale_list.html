@@ -25,8 +25,8 @@
                         <tr>
                             <th>#</th>
                             <th>REF</th>
-                            <th>Purchase_Date</th>
-                            <th>Vendor</th>
+                            <th>Order Date</th>
+                            <th>Buyer</th>
                             <th>Total Price</th>
                             <th>Status</th>
 
@@ -41,8 +41,8 @@
                           
                             <td>{{forloop.counter}}</td>
                             <td>{{so.ref}}</td>
-                            <td>{{so.purchase_date}}</td>
-                            <td>{{so.vendor.name}}</td>
+                            <td>{{so.order_date}}</td>
+                            <td>{{so.buyer}}</td>
                             <td>{{so.total_price}}</td>
                             <td>{{so.get_status_display}}</td>
                             <!-- <td>{{so.ref}}</td> -->

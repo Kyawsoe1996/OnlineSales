@@ -17,23 +17,10 @@
                 </li>
                 <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
                     class="nav-item {% if 'index' in segment %} active {% endif %}">
-                    <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    <a href="/" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Go to UI</span></a>
                 </li>
-
-                <!-- CUSTOMER ADDING -->
-                <li class="nav-item pcoded-menu-caption">
-                    <label>Customer</label>
-                </li>
-                <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" 
-                    class="nav-item active">
-                    <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user-check"></i></span><span class="pcoded-mtext">Customer</span></a>
-                </li>
-
-
-                <!-- ............................ -->
-
-
-                <!-- PRODUCT ADDING -->
+                {% if request.user.customer.is_seller or request.user.is_superuser %}
+                         <!-- PRODUCT ADDING -->
                 <li class="nav-item pcoded-menu-caption">
                     <label>Product</label>
                 </li>
@@ -42,11 +29,12 @@
                     <ul class="pcoded-submenu">
                         <li class=""><a href="{% url 'product:product-list' %}" class="">Product</a></li>
                         <li class=""><a href="{% url 'product:product-category-list' %}" class="">Product Category</a></li>
-                        <li class=""><a href="#" class="">Product UOM</a></li>
                     </ul>
                 </li>
 
                 <!-- .......................................... -->
+                {% endif %}
+               
 
 
                 <!-- Sale Order ADDING -->
@@ -62,7 +50,10 @@
                 </li>
                 
                 <!-- .......................................... -->
-                 <!-- Inventory ADDING -->
+               
+                 
+                 {% if request.user.customer.is_seller or request.user.is_superuser %}
+                   <!-- Inventory ADDING -->
                  <li class="nav-item pcoded-menu-caption">
                     <label>Inventory/Stock</label>
                 </li>
@@ -74,6 +65,11 @@
                         
                     </ul>
                 </li>
+                  <!-- ...........................Inventory................................. -->
+                 {% endif %}
+                    
+                
+                
             </ul>
         </div>
     </div>

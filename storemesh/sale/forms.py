@@ -13,8 +13,6 @@ from customer.models import Customer
 from django.forms import widgets
 import datetime
 
-# BasePurchaseOrderLine
-
 class DateInput(forms.DateInput):
     input_type = 'date'
 
@@ -52,12 +50,11 @@ class SalOrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(SalOrderForm, self).__init__(*args, **kwargs)
-
         for i in self.fields:
             self.fields[i].widget.attrs.update({'class':'form-control'})
         
         self.fields["order_date"] = forms.DateField(widget=DateInput(format=('%Y-%m-%d'),attrs={'class':'form-control'}), initial=datetime.date.today())
-
+        self.fields['buyer'].queryset = Customer.objects.all()
         
         # self.fields["vendor"].queryset = Customer.objects.filter(is_vendor=True)
         self.helper = FormHelper()
@@ -73,6 +70,8 @@ class SalOrderForm(forms.ModelForm):
                     Field('order_date'),
                     Field('buyer'),
                     Field('status'),
+                    
+                        
                   
 
 
