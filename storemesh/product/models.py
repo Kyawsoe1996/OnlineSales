@@ -53,6 +53,16 @@ class Product(models.Model):
 
     def __str__(self):
        return self.name
+    #update stock 
+    def get_current_stocks(self):
+        from inventory.models import Warehouse
+        warehouse = Warehouse.objects.first()
+        if warehouse:
+            stock_obj = warehouse.stocks.filter(product_id = self)
+            quantity = stock_obj[0].quantity
+            return quantity
+        else:
+            return 0
     #in API, showing url full backend
     @property
     def get_file_url(self):

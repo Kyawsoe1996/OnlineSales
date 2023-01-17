@@ -15,6 +15,7 @@ from .models import STATUS
 from product.models import Product
 from customer.models import Customer
 from django.contrib.auth.mixins import LoginRequiredMixin
+from inventory.models import Stock
 
 
 
@@ -52,10 +53,6 @@ class SaleOrderCreate(LoginRequiredMixin,CreateView):
     form_class = SalOrderForm
     # success_url = None
     success_url = reverse_lazy('sale:sale-list')
-
-
-    
-
    
     def get_context_data(self, **kwargs):
         data = super(SaleOrderCreate, self).get_context_data(**kwargs)
@@ -86,14 +83,25 @@ class SaleOrderCreate(LoginRequiredMixin,CreateView):
                 
                 for  form in titles:
                     so_line_obj = form.save(commit=False)
-                    # so_line_obj.sub_total = 1000
+
                     so_line_obj.sub_total = so_line_obj.get_subtotal()
 
                     so_line_obj.sale_order = self.object
 
                     so_line_obj.save()
-                # titles.instance = self.object
-                # titles.save()
+                    ##.....To update the stock............
+                    product_obj = so_line_obj.product
+                    try:
+                        stock = Stock.objects.get(product_id=product_obj)
+                    except:
+                        return HttpResponse("U don't add current stock for the product yet.. Choose the product the have the stock")
+                    stock.quantity -= so_line_obj.quantity
+                    stock.save()
+                    product_obj.qty_in_warehouse_stocks = product_obj.get_current_stocks()
+                    product_obj.save()
+                    # ..............................................
+
+
             self.object.total_price = self.object.sale_order_total()
             self.object.save()
         return super(SaleOrderCreate, self).form_valid(form)
@@ -128,10 +136,6 @@ class SaleUpdateView(UpdateView):
                 data['titles'] = SaleOrderLineFormSet(queryset,instance=self.object)
         return data
 
-    
-
-
-    
     def form_valid(self, form):
         context = self.get_context_data()
         titles = context['titles']
@@ -152,6 +156,18 @@ class SaleUpdateView(UpdateView):
                 so_line.sub_total = so_line.get_subtotal()
 
                 so_line.save()
+                ##.....To update the stock............
+                product_obj = so_line.product
+                try:
+                    stock = Stock.objects.get(product_id=product_obj)
+                except:
+                    return HttpResponse("U don't add current stock for the product yet.. Choose the product the have the stock")
+                stock.quantity -= so_line.quantity
+                stock.save()
+                product_obj.qty_in_warehouse_stocks = product_obj.get_current_stocks()
+                product_obj.save()
+                # ..............................................
+
             self.object.total_price = self.object.sale_order_total()
             self.object.save()
           
