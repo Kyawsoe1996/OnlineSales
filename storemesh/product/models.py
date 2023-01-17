@@ -36,7 +36,7 @@ class Product(models.Model):
     
     name = models.CharField(max_length=50)
     type = models.CharField(choices=TYPE,default='stock',max_length=10)
-    category = models.ForeignKey(ProductCategory,related_name="products",on_delete=models.CASCADE)
+    category = models.ForeignKey(ProductCategory,related_name="products",on_delete=models.SET_NULL,blank=True,null=True)
     image = models.ImageField()
     slug = models.SlugField()
     unit_price = models.FloatField(blank=True,null=True)
