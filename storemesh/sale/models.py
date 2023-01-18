@@ -19,7 +19,7 @@ class SaleOrder(models.Model):
     created_date = models.DateTimeField(auto_now=True)
     status = models.CharField(choices=STATUS,default='q',max_length=2)
     total_price = models.FloatField(blank=True,null=True)
-    
+    devlivery_note = models.TextField(blank=True,null=True)
 
 
     def sale_order_total(self):

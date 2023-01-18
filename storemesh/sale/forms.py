@@ -54,7 +54,7 @@ class SalOrderForm(forms.ModelForm):
             self.fields[i].widget.attrs.update({'class':'form-control'})
         
         self.fields["order_date"] = forms.DateField(widget=DateInput(format=('%Y-%m-%d'),attrs={'class':'form-control'}), initial=datetime.date.today())
-        self.fields['buyer'].queryset = Customer.objects.all()
+        self.fields['buyer'].queryset = Customer.objects.filter(is_buyer=True)
         
         # self.fields["vendor"].queryset = Customer.objects.filter(is_vendor=True)
         self.helper = FormHelper()
@@ -63,13 +63,14 @@ class SalOrderForm(forms.ModelForm):
         self.helper.label_class = 'col-md-3 create-label'
         self.helper.field_class = 'col-md-9'
         if self.instance.id is not None:
-          
             self.helper.layout = Layout(
                 Div(
                     Field('ref',readonly="True"),
                     Field('order_date'),
                     Field('buyer'),
                     Field('status'),
+                    Field('devlivery_note'),
+                    
                     
                         
                   
@@ -91,6 +92,7 @@ class SalOrderForm(forms.ModelForm):
                     Field('order_date'),
                     Field('buyer'),
                     Field('status'),
+                    Field('devlivery_note'),
 
 
 
