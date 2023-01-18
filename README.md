@@ -1,4 +1,6 @@
 # OnlineSales
+ER Diagram Link => https://drive.google.com/file/d/1e4BaL93W22LRlBTbpR-P5flD6E5DV6bV/view?usp=sharing
+
 Step
 1. First python manage.py migrate
 2. python manage.py createsuperuser
@@ -17,6 +19,8 @@ Step
   And saved it. Now you can successfully login with google
 ![image](https://user-images.githubusercontent.com/40347669/213111697-a4662b58-56f8-44a4-8c31-ddb122b00c60.png)
 
+	API LINK for Product CRUD  => http://localhost:8000/api/product/
+	
 7.After Login Success, Customer Initial View
 ![image](https://user-images.githubusercontent.com/40347669/213123812-4f1bdd4c-4e4d-40f1-837b-ade62f4e4cf1.png)
 8. Buyer and Admin user can add stocks to the warehouse after creating the warehouse
