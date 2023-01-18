@@ -59,8 +59,12 @@ class Product(models.Model):
         warehouse = Warehouse.objects.first()
         if warehouse:
             stock_obj = warehouse.stocks.filter(product_id = self)
-            quantity = stock_obj[0].quantity
-            return quantity
+            if stock_obj:
+
+                quantity = stock_obj[0].quantity
+                return quantity
+            else:
+                return 0
         else:
             return 0
     #in API, showing url full backend
