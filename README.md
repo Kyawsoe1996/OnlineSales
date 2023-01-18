@@ -17,4 +17,21 @@ Step
   And saved it. Now you can successfully login with google
 ![image](https://user-images.githubusercontent.com/40347669/213111697-a4662b58-56f8-44a4-8c31-ddb122b00c60.png)
 
+7.After Login Success, Customer Initial View
+![image](https://user-images.githubusercontent.com/40347669/213123812-4f1bdd4c-4e4d-40f1-837b-ade62f4e4cf1.png)
+8. Buyer and Admin user can add stocks to the warehouse after creating the warehouse
+![image](https://user-images.githubusercontent.com/40347669/213124100-20d65e15-790b-47bc-b5ec-1fabdadbc1e8.png)
+
+	![image](https://user-images.githubusercontent.com/40347669/213124047-87f5bd80-62ab-4c90-ad4c-61eef4d32dcf.png)
+9. Product List View on Dashboard
+![image](https://user-images.githubusercontent.com/40347669/213124220-75d4b1e2-f03a-467a-9765-1b6aa86905b8.png)
+10. Sale Order Create By Customer UI
+	![image](https://user-images.githubusercontent.com/40347669/213124344-169b0268-5fcb-4771-b175-d83706d6a5e8.png)
+11.User can check the Sale Order  Detail View as follow
+
+![image](https://user-images.githubusercontent.com/40347669/213124480-eedff74b-ae8d-40ac-9d92-9eb375e576fd.png)
+
+
+	
+
 
