@@ -22,7 +22,8 @@ Step
 8. Buyer and Admin user can add stocks to the warehouse after creating the warehouse
 ![image](https://user-images.githubusercontent.com/40347669/213124100-20d65e15-790b-47bc-b5ec-1fabdadbc1e8.png)
 
-	![image](https://user-images.githubusercontent.com/40347669/213124047-87f5bd80-62ab-4c90-ad4c-61eef4d32dcf.png)
+![image](https://user-images.githubusercontent.com/40347669/213124970-a27f131f-3c51-4cbe-8c96-8e0b9a475032.png)
+
 9. Product List View on Dashboard
 ![image](https://user-images.githubusercontent.com/40347669/213124220-75d4b1e2-f03a-467a-9765-1b6aa86905b8.png)
 10. Sale Order Create By Customer UI
